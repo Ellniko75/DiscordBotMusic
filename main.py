@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 import youtube_dl
 import asyncio
-import threading
-import time
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -114,5 +114,4 @@ async def desconectar(ctx):
         await voice_client.disconnect()
         connection = None
 
-
-bot.run('MTE2NTY4OTYxMjQzNDQwNzQzNA.GgZfIj.nUvqNImjj3iHFhvUbQPZvmxq9x0n0AniAu7iY4')
+bot.run(os.getenv("MY_KEY"))
